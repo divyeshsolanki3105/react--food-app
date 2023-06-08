@@ -4,6 +4,7 @@ import Table from "react-bootstrap/Table";
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { DLT ,ADD,REMOVE} from '../redux/Action/action';
+import Header from './Header';
 
 export const CardsDetails = () => {
   const[data,setData]=useState([]);
@@ -34,7 +35,7 @@ const dispatch=useDispatch();
    
   const dlt=(id)=>{
     dispatch(DLT(id))
-    history("/");
+    history("/cpage");
   }
 
   const remove=(item)=>{
@@ -46,6 +47,8 @@ const dispatch=useDispatch();
   },[id])
 
   return (
+    <div>
+      <Header/>
     <div className='container mt-2'>
       <h2 className='text-center'>Iteams Details Page</h2>
 
@@ -91,6 +94,7 @@ const dispatch=useDispatch();
           }
           </div> 
       </section>
+    </div>
     </div>
   )
 }

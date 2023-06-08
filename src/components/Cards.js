@@ -5,6 +5,8 @@ import Cardsdata from "./CardsData";
 import "./style.css"
 import { useDispatch } from "react-redux";
 import { ADD } from "../redux/Action/action";
+import Header from "./Header";
+import Details from "../component2/Details";
 
 export const Cards = () => {
   const [data, setData] = useState(Cardsdata);
@@ -18,6 +20,9 @@ const send=(e)=>{
 
 
   return (
+    <div>
+      <Header/>
+      <Details/>
     <div className="container mt-3">
       <h2 className="text-center">Add to Cart Projects</h2>
 
@@ -43,6 +48,7 @@ const send=(e)=>{
           );
         })}
       </div>
+    </div>
     </div>
   );
 };
