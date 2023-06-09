@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import SIgn_img from './SIgn_img'
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
@@ -13,8 +12,7 @@ const Home = () => {
 
     const [inpval, setInpval] = useState({
         name: "",
-        email: "",
-        date: "",
+        email: "",   
         password: ""
     })
 
@@ -43,7 +41,7 @@ const Home = () => {
     const addData = (e) => {
         e.preventDefault();
 
-        const { name, email, date, password } = inpval;
+        const { name, email, password } = inpval;
 
         if (name === "") {
             toast.error(' name field is requred!',{
@@ -57,10 +55,7 @@ const Home = () => {
              toast.error('plz enter valid email addres',{
                 position: "top-center",
             });
-        } else if (date === "") {
-             toast.error('date field is requred',{
-                position: "top-center",
-            });
+        
         } else if (password === "") {
              toast.error('password field is requred',{
                 position: "top-center",
@@ -72,7 +67,7 @@ const Home = () => {
         } else {
             console.log("data added succesfully");
             history("/login")
-            localStorage.setItem("useryoutube",JSON.stringify([...data,inpval]));
+            localStorage.setItem("userdata",JSON.stringify([...data,inpval]));
 
         }
 
@@ -92,12 +87,7 @@ const Home = () => {
                             <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
 
                                 <Form.Control type="email" name='email' onChange={getdata} placeholder="Enter email" />
-                            </Form.Group>
-
-                            <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
-
-                                <Form.Control onChange={getdata} name='date' type="date" />
-                            </Form.Group>
+                            </Form.Group>                     
 
                             <Form.Group className="mb-3 col-lg-6" controlId="formBasicPassword">
 
@@ -109,7 +99,6 @@ const Home = () => {
                         </Form>
                         <p className='mt-3'>Already Have an Account <span><NavLink to="/login">SignIn</NavLink></span> </p>
                     </div>
-                    <SIgn_img />
                 </section>
                 <ToastContainer />
             </div>
