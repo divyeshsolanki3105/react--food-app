@@ -37,7 +37,7 @@ const Login = () => {
     const addData = (e) => {
         e.preventDefault();
 
-        const getuserArr = localStorage.getItem("useryoutube");
+        const getuserArr = localStorage.getItem("userData");
         console.log(getuserArr);
 
         const { email, password } = inpval;

@@ -67,7 +67,7 @@ const Home = () => {
         } else {
             console.log("data added succesfully");
             history("/login")
-            localStorage.setItem("userdata",JSON.stringify([...data,inpval]));
+            localStorage.setItem("userData",JSON.stringify([...data,inpval]));
 
         }
 
